@@ -7,8 +7,12 @@ module Traceur
     Compiler.new(source, opts).compile
   end
 
+  def self.node_binary
+    "node"
+  end
+
   def self.node_modules_path
-    File.expand_path("../../node_modules", __FILE__)
+    File.expand_path("../../vendor/node_modules", __FILE__)
   end
 
   def self.runtime
