@@ -5,7 +5,7 @@ require 'traceur/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "traceur-rb"
-  spec.version       = Traceur::Rb::VERSION
+  spec.version       = Traceur::VERSION
   spec.authors       = ["Adam Pohorecki"]
   spec.email         = ["adam@pohorecki.pl"]
   spec.summary       = %q{Ruby wrapper for Google Traceur.}
@@ -21,4 +21,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
+  spec.add_development_dependency "guard-rspec"
 end
