@@ -6,13 +6,22 @@ describe "Integration tests" do
     Traceur::Node.eval(runtime + ";" + script)
   end
 
-  def example_file(name)
-    path = File.expand_path("../../examples/#{name}", __FILE__)
-    File.read(path)
+  def example_file_path(name)
+    File.expand_path("../../examples/#{name}", __FILE__)
   end
 
-  it "classes.js example" do
+  def example_file(name)
+    File.read(example_file_path(name))
+  end
+
+  it "allows compiling strings" do
     compiled = Traceur.compile(example_file('classes.js'))
+
+    expect(eval_js(compiled)).to eq("Hello world!\n")
+  end
+
+  it "allows compiling files" do
+    compiled = Traceur.compile_file(example_file_path('classes.js'))
 
     expect(eval_js(compiled)).to eq("Hello world!\n")
   end

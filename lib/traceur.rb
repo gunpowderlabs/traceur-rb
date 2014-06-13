@@ -9,6 +9,10 @@ module Traceur
     compiler.compile(source, opts)
   end
 
+  def self.compile_file(source_file, opts = {})
+    compiler.compile_file(File.new(source_file), opts)
+  end
+
   def self.config
     @config ||= Configuration.new
   end
