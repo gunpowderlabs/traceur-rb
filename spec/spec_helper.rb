@@ -1,1 +1,1 @@
-require "traceur"
+require "traceur-rb"
