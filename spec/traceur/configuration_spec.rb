@@ -24,6 +24,18 @@ describe Traceur::Configuration do
     expect(config.compile_script_path).to eq("/my/compile.js")
   end
 
+  it "allows setting default compilation options" do
+    config.default_compilation_options.modules = "amd"
+
+    expect(config.default_compilation_options.modules).to eq("amd")
+  end
+
+  it "allows setting default compilation options in bulk" do
+    config.default_compilation_options = {experimental: true, source_map: false}
+
+    expect(config.default_compilation_options.to_hash).to eq({experimental: true, sourceMap: false})
+  end
+
   it "defaults node binary to node" do
     expect(config.node_binary).to eq("node")
   end

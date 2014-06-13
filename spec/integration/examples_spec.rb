@@ -12,7 +12,7 @@ describe "Integration tests" do
   end
 
   it "classes.js example" do
-    compiled = Traceur.compile(example_file('classes.js'), modules: "inline")
+    compiled = Traceur.compile(example_file('classes.js'))
 
     expect(eval_js(compiled)).to eq("Hello world!\n")
   end

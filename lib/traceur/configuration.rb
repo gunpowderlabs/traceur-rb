@@ -23,6 +23,17 @@ module Traceur
       @compile_script_path ||= root_dir.join("lib", "js", "compile.js")
     end
 
+    def default_compilation_options
+      @default_compilation_options ||= CompilationOptions.new(
+        modules: :inline,
+        source_map: true,
+      )
+    end
+
+    def default_compilation_options=(hash)
+      @default_compilation_options = CompilationOptions.new(hash)
+    end
+
     private
 
     def root_dir

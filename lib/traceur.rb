@@ -1,5 +1,6 @@
 require "traceur/version"
 require "traceur/configuration"
+require "traceur/compilation_options"
 require "traceur/node"
 require "traceur/compiler"
 
@@ -25,6 +26,8 @@ module Traceur
   end
 
   def self.compiler
-    Compiler.new(node_runner, config.compile_script_path.to_s)
+    Compiler.new(runner: node_runner,
+                 compile_script_path: config.compile_script_path.to_s,
+                 default_compilation_options: config.default_compilation_options)
   end
 end
