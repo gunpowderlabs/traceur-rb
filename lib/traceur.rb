@@ -1,29 +1,34 @@
 require "traceur/version"
+require "traceur/configuration"
 require "traceur/node"
 require "traceur/compiler"
 
 module Traceur
   def self.compile(source, opts = {})
-    Compiler.new(source, opts).compile
+    compiler.compile(source, opts)
   end
 
-  def self.node_binary
-    "node"
+  def self.config
+    @config ||= Configuration.new
   end
 
-  def self.node_modules_path
-    File.expand_path("../../vendor/node_modules", __FILE__)
+  def self.configure
+    yield config
   end
 
   def self.runtime
-    File.expand_path("traceur/bin/traceur-runtime.js", node_modules_path)
+    config.traceur_runtime_path
   end
 
   def self.node_runner(opts = {})
     Node::Runner.new({
-      binary: Traceur.node_binary,
-      modules_path: Traceur.node_modules_path,
+      binary: config.node_binary.to_s,
+      modules_path: config.node_modules_path.to_s,
       env: ENV.to_hash
     }.merge(opts))
+  end
+
+  def self.compiler
+    Compiler.new(node_runner, config.compile_script_path.to_s)
   end
 end
