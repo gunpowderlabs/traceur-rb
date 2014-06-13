@@ -18,4 +18,12 @@ module Traceur
   def self.runtime
     File.expand_path("traceur/bin/traceur-runtime.js", node_modules_path)
   end
+
+  def self.node_runner(opts = {})
+    Node::Runner.new({
+      binary: Traceur.node_binary,
+      modules_path: Traceur.node_modules_path,
+      env: ENV.to_hash
+    }.merge(opts))
+  end
 end
