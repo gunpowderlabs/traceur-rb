@@ -16,10 +16,6 @@ module Traceur
     yield config
   end
 
-  def self.runtime
-    config.traceur_runtime_path
-  end
-
   def self.node_runner(opts = {})
     Node::Runner.new({
       binary: config.node_binary.to_s,

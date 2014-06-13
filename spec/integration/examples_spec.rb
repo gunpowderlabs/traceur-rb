@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Integration tests" do
   def eval_js(script)
-    runtime = File.read(Traceur.runtime)
+    runtime = File.read(Traceur.config.traceur_runtime_path)
     Traceur::Node.eval(runtime + ";" + script)
   end
 
