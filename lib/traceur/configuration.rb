@@ -19,6 +19,10 @@ module Traceur
       @traceur_runtime_path ||= node_modules_path.join("traceur", "bin", "traceur-runtime.js")
     end
 
+    def assets_path
+      traceur_runtime_path.dirname.to_s
+    end
+
     def compile_script_path
       @compile_script_path ||= root_dir.join("lib", "js", "compile.js")
     end

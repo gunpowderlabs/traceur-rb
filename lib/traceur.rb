@@ -15,6 +15,12 @@ module Traceur
 
   def self.config
     @config ||= Configuration.new
+    yield @config if block_given?
+    @config
+  end
+
+  def self.assets_path
+    config.assets_path
   end
 
   def self.configure
