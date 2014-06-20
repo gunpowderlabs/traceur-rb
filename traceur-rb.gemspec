@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["adam@pohorecki.pl"]
   spec.summary       = %q{Ruby wrapper for Google Traceur.}
   spec.description   = %q{Wraps Google Traceur, so that it can be invoked from any Ruby application.}
-  spec.homepage      = "https://github.com/psyho/traceur-rb"
+  spec.homepage      = "https://github.com/gunpowderlabs/traceur-rb"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
