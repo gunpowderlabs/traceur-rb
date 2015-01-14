@@ -38,9 +38,9 @@ require 'traceur'
 compiled_source = Traceur.compile(es6_source, additional_compilation_flags) 
 ```
 
-simmilarly, you can compile a file using:
+similarly, you can compile a file using:
 
-```
+```ruby
 require 'traceur'
 
 compiled_source = Traceur.compile_file(path_to_es6_file, additional_compilation_flags)
