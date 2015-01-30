@@ -12,7 +12,7 @@ module Traceur
       def run(opts = {})
         input = opts.fetch(:input) { "" }
         arguments = opts.fetch(:arguments) { [] }
-        on_error = opts.fetch(:on_error) { ->{} }
+        on_error = opts.fetch(:on_error) { ->(r) {} }
 
         Open3.popen3(env, binary, *arguments) do |stdin, stdout, stderr, wait_thr|
           stdin.print input

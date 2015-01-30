@@ -1,5 +1,6 @@
 require "traceur/version"
 require "traceur/configuration"
+require "traceur/compilation_error"
 require "traceur/compilation_options"
 require "traceur/node"
 require "traceur/compiler"
@@ -10,7 +11,7 @@ module Traceur
   end
 
   def self.compile_file(source_file, opts = {})
-    compiler.compile_file(File.new(source_file), opts)
+    compiler.compile_file(File.new(source_file), {filename: source_file}.merge(opts))
   end
 
   def self.config

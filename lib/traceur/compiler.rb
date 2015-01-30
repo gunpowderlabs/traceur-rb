@@ -15,7 +15,10 @@ module Traceur
     def compile_file(infile, opts = {})
       options = default_compilation_options.merge(opts)
       outfile = Tempfile.new('out.js')
-      runner.run(arguments: [compile_script_path, infile.path, outfile.path, options.to_json])
+      runner.run(
+        arguments: [compile_script_path, infile.path, outfile.path, options.to_json],
+        on_error: ->(r) { raise CompilationError.parse(r.stderr) }
+      ).stdout
       outfile.read
     end
 

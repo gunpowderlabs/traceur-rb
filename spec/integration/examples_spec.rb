@@ -25,4 +25,10 @@ describe "Integration tests" do
 
     expect(eval_js(compiled)).to eq("Hello world!\n")
   end
+
+  it "raises an error when compiling a file with syntax errors" do
+    expect {
+      p Traceur.compile_file(example_file_path('syntax_error.js'))
+    }.to raise_error(Traceur::CompilationError)
+  end
 end
