@@ -30,7 +30,7 @@ module Traceur
     def default_compilation_options
       @default_compilation_options ||= CompilationOptions.new(
         modules: :inline,
-        source_map: true,
+        source_maps: :inline,
       )
     end
 
