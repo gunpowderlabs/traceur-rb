@@ -40,12 +40,12 @@ describe Traceur::Configuration do
     expect(config.node_binary).to eq("node")
   end
 
-  it "defaults node_modules_path to vendor dir bundled with this gem" do
-    expect(config.node_modules_path.to_s).to eq(root_dir + "/vendor/node_modules")
+  it "defaults node_modules_path to node_modules dir bundled with this gem" do
+    expect(config.node_modules_path.to_s).to eq(root_dir + "/node_modules")
   end
 
   it "defaults traceur_runtime_path to the bundled version" do
-    expect(config.traceur_runtime_path.to_s).to eq(root_dir + "/vendor/node_modules/traceur/bin/traceur-runtime.js")
+    expect(config.traceur_runtime_path.to_s).to eq(root_dir + "/node_modules/traceur/bin/traceur-runtime.js")
   end
 
   it "defaults compile script path to local file" do
