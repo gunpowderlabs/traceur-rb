@@ -1,0 +1,15 @@
+{
+  "name": "traceur-rb",
+  "version": "0.0.3",
+  "description": "Ruby wrapper for Google Traceur",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gunpowderlabs/traceur-rb.git"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/gunpowderlabs/traceur-rb#readme",
+  "dependencies": {
+    "traceur": "0.0.85"
+  },
+  "private": true
+}

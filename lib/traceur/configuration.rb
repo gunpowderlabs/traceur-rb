@@ -12,7 +12,7 @@ module Traceur
     end
 
     def node_modules_path
-      @node_modules_path ||= root_dir.join("vendor", "node_modules")
+      @node_modules_path ||= root_dir.join("node_modules")
     end
 
     def traceur_runtime_path
